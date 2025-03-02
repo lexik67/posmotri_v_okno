@@ -232,6 +232,7 @@ body {
 
 .content__list {
   display: flex;
+  position: relative;
   flex-direction: column;
   row-gap: 30px;
   max-height: 298px;
