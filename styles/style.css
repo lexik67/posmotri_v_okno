@@ -38,7 +38,6 @@ ol {
 }
 
 body {
-  max-height: 1200px;
   margin: 0 auto;
 }
 
@@ -54,10 +53,6 @@ body {
   white-space: nowrap;
 } 
 
-.page {
-  max-height: 534px;
-}
-
 .content {
   display: grid;
   gap: 30px;
@@ -65,6 +60,30 @@ body {
   grid-template-columns: auto 399px;
   grid-template-rows: 1fr auto 1fr;
   min-height: 100vh;
+}
+
+.button {
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+
+.button:active {
+  background-color: #545050;
+  text-decoration: none;
+}
+
+.button:hover:not(:active) {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 /* 1. левая секция с видео */
@@ -117,7 +136,7 @@ body {
   width: 225px;
   height: 27px;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.7);
   border-width: 1px 0;
   margin-top: 5px;
@@ -140,6 +159,7 @@ body {
 .search-form__label {
   display: flex;
   width: fit-content;
+  align-items: center;
 }
 
 /* левая секция - форма - чекбокс */
@@ -185,29 +205,8 @@ body {
 .search-form__submit-button {
   width: 194px;
   height: 34px;
-  color: #fff;
-  background-color: transparent;
-  border: 1px solid #fff;
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 18px;
   place-self: end;
   margin-bottom: 2px;
-}
-
-.search-form__submit-button:hover:not(:active) {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.search-form__submit-button:active {
-  background-color: #545050;
-  text-decoration: none;
-}
-
-.search-form__submit-button:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
 }
 
 /* 2 . правая секция с деталями */
@@ -234,9 +233,8 @@ body {
   display: flex;
   position: relative;
   flex-direction: column;
-  row-gap: 30px;
   max-height: 298px;
-  overflow-y: scroll;
+  overflow: auto;
   box-sizing: content-box;
   height: 100%;
   margin-top: 26px;
@@ -249,6 +247,14 @@ body {
   text-transform: none;
   text-decoration: none;
   cursor: pointer;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__list-item:not(:last-of-type) {
+  margin-bottom: 30px;
 }
 
 .content__list-item .content__card-link:focus-within:not(:active) {
@@ -283,6 +289,10 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   color: #fff;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
@@ -300,25 +310,12 @@ body {
   min-width: 194px;
   height: 103px;
   margin-right: 3px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .more-button {
   width: 100%;
   padding: 6px;
-  font-family: 'Fira Sans Condensed', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  border: 1px solid #fff;
-  background-color: transparent;
   margin-bottom: 1px;
-}
-
-.more-button:hover {
-  cursor: pointer;
-}
-
-.more-button:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
 }
